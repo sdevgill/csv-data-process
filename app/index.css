@@ -13,6 +13,7 @@ th,
 td {
   border: 1px solid #ccc;
   padding: 5px;
+  text-align: center;
 }
 
 .gold {
@@ -25,4 +26,8 @@ td {
 
 .bronze {
   background-color: #cd7f32;
+}
+
+.fi {
+  padding: 30px;
 }
