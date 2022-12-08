@@ -1,7 +1,19 @@
-// Notes
-// The countries flag api was too slow, so I added a npm package to get the flags
-// It doesn't work with all flags though, as the country ISO names sometimes differ from the country names in the csv file - so I had to remove the last character from the country name to get the flag to work
-// I didn't have the time to fix that, but the implementation is there
+// Notes:
+
+// 0.
+// Completed the main tasks.
+
+// 1
+// Bonus tasks - Two finished, one started - but not enough time to finish
+  // 0
+  // Finished sorting by medals and ascending/descending order
+  //1.
+  // The countries flag api was too slow, so I added a npm package to get the flags
+  // It doesn't work with all flags though, as the country ISO names sometimes differ from the country names in the csv file - so I had to remove the last character from the country name to get the flag to work
+  // I didn't have the time to fix that, but the implementation is there
+  // 2.
+  // Not enough time to make a dynamic chart with the medals/population data
+  // So just made a static chart with hard coded data for the top 5 countries
 
 // ------------------------------------------------------------------------------------
 
@@ -107,6 +119,43 @@ const sortBy = document.getElementById('sort-by');
 const sortOrder = document.getElementById('sort-order');
 sortBy.addEventListener('change', sortMedalsTable);
 sortOrder.addEventListener('change', sortMedalsTable);
+
+// Most successful countries chart
+const ctx = document.getElementById('goldMedalPerPersonChart').getContext('2d');
+const chart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['CHN', 'RUS', 'USA', 'GER', 'GBR'],
+    datasets: [{
+      label: 'Gold Medals per Person',
+      data: [56 / 1439323776, 47 / 145934462, 147 / 331002651, 45 / 83783942, 48 / 67886011],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  }
+});
 
 // Window onload event handler
 window.onload = () => {
