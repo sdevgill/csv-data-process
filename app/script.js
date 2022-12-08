@@ -1,22 +1,3 @@
-// Notes:
-
-// 0.
-// Completed the main tasks.
-
-// 1
-// Bonus tasks - Two finished, one started - but not enough time to finish
-  // 0
-  // Finished sorting by medals and ascending/descending order
-  //1.
-  // The countries flag api was too slow, so I added a npm package to get the flags
-  // It doesn't work with all flags though, as the country ISO names sometimes differ from the country names in the csv file - so I had to remove the last character from the country name to get the flag to work
-  // I didn't have the time to fix that, but the implementation is there
-  // 2.
-  // Not enough time to make a dynamic chart with the medals/population data
-  // So just made a static chart with hard coded data for the top 5 countries
-
-// ------------------------------------------------------------------------------------
-
 // Fetch and display the medal data
 const fetchMedalsData = async () => {
   fetch('http://localhost:3001/api/medals/')
