@@ -5,18 +5,19 @@ import path from 'path';
 import fs from 'fs';
 import parse from 'papaparse';
 
+let countries = {};
+
 // Use path.join to create a path to the csv file
 const filePath = path.join(__dirname, './../../raw-data/2004-2012.csv');
 
 // Use fs to read the file and parse it
-fs.readFile(filePath, (err, data) => {
+const fileData = fs.readFile(filePath, (err, data) => {
   if (err) throw err;
 
   parse.parse(data.toString(), {
     header: true,
     complete: (results) => {
       const entries = results.data.filter(entry => entry.Year === '2012');
-      const countries = {};
       entries.forEach(entry => {
         const country = entry.Country;
         const medal = entry.Medal;
@@ -36,6 +37,10 @@ const createApp = () => {
 
   app.get("/", (req, res) => {
     res.send("Hello World!");
+  });
+
+  app.get("/api/medals", (req, res) => {
+    res.send(countries);
   });
 
   return app;
