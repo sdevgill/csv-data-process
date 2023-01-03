@@ -5,7 +5,7 @@ services:
     image: postgres
     environment:
       - POSTGRES_PASSWORD=verysecretpassword
-      - POSTGRES_USER=DataTruth
-      - POSTGRES_DB=DataTruth
+      - POSTGRES_USER=DataProcess
+      - POSTGRES_DB=DataProcess
     ports:
       - "5432:5432"
